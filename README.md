@@ -1,31 +1,224 @@
-A Github Pages template for academic websites. This was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License. See LICENSE.md.
+# Jekflix Template
 
-I think I've got things running smoothly and fixed some major bugs, but feel free to file issues or make pull requests if you want to improve the generic template / theme.
+![Jekflix Template Cover Image](https://res.cloudinary.com/dm7h7e8xj/image/upload/v1505354182/jekflix-logo_mfngps.png)
 
-### Note: if you are using this repo and now get a notification about a security vulnerability, delete the Gemfile.lock file. 
+See the [demo here](https://jekflix.rossener.com/).
 
-# Instructions
+## What is it?
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+A theme for Jekyll inspired by Netflix panel for who loves movies and series and would like to have a blog with this cool appearance.
 
-See more info at https://academicpages.github.io/
+![Jekflix Screenshot Image](https://res.cloudinary.com/dm7h7e8xj/image/upload/v1566390829/jekflix-screenshot-2_zfiog2.jpg)
 
-## To run locally (not on GitHub Pages, to serve on your own computer)
+## Features
 
-1. Clone the repository and made updates as detailed above
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle clean` to clean up the directory (no need to run `--force`)
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+- [Live Search](docs/features.md#live-search)
+- [Estimated Reading Time](docs/features.md#estimated-reading-time)
+- [Reading Progress Bar](docs/features.md#reading-progress-bar) *(optional)*
+- ["New Post" tag](docs/features.md#new-post-tag)
+- [Load images on demand](docs/features.md#load-images-on-demand)
+- [Push Menu](docs/features.md#push-menu)
+- [SVG icons](docs/features.md#svg-icons)
+- [Shell script to create posts](docs/features.md#shell-script-to-create-posts)
+- [Tags page](docs/features.md#tags-page)
+- [About page](docs/features.md#about-page)
+- [Contact page](docs/features.md#contact-page)
+- [404 error page](docs/features.md#404-error-page)
+- [Feed RSS](docs/features.md#feed-rss)
+- [Disqus](docs/features.md#disqus) *(optional)*
+- [Featured post](docs/features.md#featured-post) *(optional)*
+- [Home page pagination](docs/features.md#home-page-pagination) *(optional)*
+- [Posts sidebar](docs/features.md#posts-sidebar) *(optional)*
+- [Paginated posts](docs/features.md#paginated-posts) *(optional)*
+- ["Before you go" modal](docs/features.md#before-you-go-modal) *(optional)*
+- [Post recommendation](docs/features.md#post-recommendation)
+- [Netlify CMS ready](docs/features.md#netlify-cms-ready)
+- [Translations](docs/setup.md#translations) **new!**
+- [Math Expressions](docs/features.md#math-expressions) *(optional)* **new!**
 
-# Changelog -- bugfixes and enhancements
+## SEO
 
-There is one logistical issue with a ready-to-fork template theme like academic pages that makes it a little tricky to get bug fixes and updates to the core theme. If you fork this repository, customize it, then pull again, you'll probably get merge conflicts. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch. 
+- Google Analytics
+- Meta tags
+- JSON-LD
+- Sitemap.xml
+- Social Media ready
 
-To support this, all changes to the underlying code appear as a closed issue with the tag 'code change' -- get the list [here](https://github.com/academicpages/academicpages.github.io/issues?q=is%3Aclosed%20is%3Aissue%20label%3A%22code%20change%22%20). Each issue thread includes a comment linking to the single commit or a diff across multiple commits, so those with forked repositories can easily identify what they need to patch.
+## Quick Install
+
+In the case you're installing to existing Jekyll project, add this line to your project's `Gemfile`:
+
+```
+gem "jekflix"
+```
+
+Add this line to your project's `_config.yml`:
+
+```
+theme: jekflix
+```
+
+And then run:
+
+```
+$ bundle
+```
+
+Or install it yourself as:
+
+```
+$ gem install jekflix
+```
+
+### Theme Colors
+
+Create the file `/assets/css/styles.scss` and add:
+
+```
+---
+---
+
+$themeColor: #ff0a16;
+$primaryDark: #141414;
+$accentDark: #ffffff;
+$lightGray: #f2f2f2;
+$texts: #333333;
+
+@import "jekflix";
+```
+
+Modify the variables above to change your theme colors.
+
+### Site configuration
+
+Below are some properties you can change in your project `_config.yml`, check the [documentation](docs/settings.md#settings) for more details.
+
+```
+# Site Settings
+name: Jekflix
+title: Jekflix | A blog theme for Jekyll
+description: Jekflix is a template for Jekyll inspired by Netflix and made by Thiago Rossener.
+tags:
+  - blog
+  - template
+  - jekyll
+  - theme
+  - netlify
+email: youremail@xyz.com
+disqus_username: disqus_username
+show_hero: true
+menu:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+  - title: Contact
+    url: /contact
+  - title: Feed
+    url: /feed.xml
+
+# Social Media Settings
+# Remove the item if you don't need it
+github_username: github_username
+facebook_username: facebook_username
+twitter_username: twitter_username
+instagram_username: instagram_username
+linkedin_username: linkedin_username
+medium_username: medium_username
+
+# Posts Settings
+show_time_bar: true
+show_modal_on_exit: false
+show_modal_on_finish_post: true
+two_columns_layout: true
+
+# Advanced Settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+google_analytics: "UA-XXXXXXXX-X"
+language: "en"
+categories_folder: category
+sent_message_url: "/contact/message-sent/"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+collections:
+  authors:
+    output: true
+paginate_path: "/page/:num/"
+show_get_theme_btn: true
+use_logo: false
+
+# Content paginator
+paginate_content:
+  enabled: true
+  debug: false
+  collections:
+    - posts
+  auto: false
+  separator: "--page-break--"
+  permalink: "/:num/"
+  seo_canonical: true
+  properties:
+    part:
+      is_generated: true
+    last:
+      is_generated: true
+    single:
+      is_generated: true
+
+# SASS
+sass:
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-paginate-content
+```
+
+## Setup
+
+In the case you're cloning this repo, follow those instructions:
+
+- [Environment](docs/setup.md#environment)
+- [Installing template](docs/setup.md#installing-template)
+- [Running local](docs/setup.md#running-local)
+
+### Customization
+
+See the [settings documentation](docs/settings.md#settings) to customize layout, titles, social media and more.
+
+### Theme
+
+You can easily change the theme colors by changing the file `src/yml/theme.yml`, then running `gulp build` in your terminal.
+
+#### GitHub pages
+
+It's a known issue that you can't run Gulp when deploying the website into GitHub pages. So, you must change the theme colors and run `gulp build` locally, then push the changes into your repo, there is no other way.
+
+To see how your website is going to look like when you deploy it, run `bundle exec jekyll serve` locally and access `http://127.0.0.1:4000/`.
+
+## Posts
+
+Use the [Front Matter properties](docs/post.md#front-matter-properties) to create posts.
+
+> **Note:** In the case you're cloning this repo, you can use the available [script](docs/post.md#creating-a-post) to generate posts automatically.
+
+## Questions?
+
+File a [GitHub issue](https://github.com/thiagorossener/jekflix-template/issues/new) please.
+
+## Author
+
+[Thiago Rossener](https://rossener.com/)
+
+Do you like my work? Buy me a coffee!
+
+<a href="https://www.buymeacoffee.com/thiagorossener" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+## License
+
+*Jekflix Template* is available under the MIT license. See the [LICENSE](https://github.com/thiagorossener/jekflix-template/blob/master/LICENSE) file for more info.
