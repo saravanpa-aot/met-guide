@@ -9,7 +9,7 @@
           return;
         }
 
-        let expectedTheme = mode === ModeToggle.DARK_MODE ? 'dark' : 'default';
+        let expectedTheme = 'light';
         let config = { theme: expectedTheme };
 
         /* Re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */
@@ -24,14 +24,14 @@
       }
     }
 
-    let initTheme = 'default';
+    let initTheme = 'light';
     const html = document.documentElement;
 
     if (
       (html.hasAttribute('data-mode') && html.getAttribute('data-mode') === 'dark') ||
       (!html.hasAttribute('data-mode') && window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
-      initTheme = 'dark';
+      initTheme = 'light';
     }
 
     let mermaidConf = {
