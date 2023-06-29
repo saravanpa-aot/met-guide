@@ -28,7 +28,8 @@ endfor %} {% endif %} {% if paginator.total_pages > 1 %} {% assign has_paginator
 <div id="post-list" {% unless has_paginator %} class="mb-5" {% endunless %}>
   <div class="row">
     <div class="post-list-header"><h3>Get Started</h3></div>
-    {% for post in posts %}
+    {% assign filtered_posts = site.posts | where_exp:"post", "post.tags contains 'getting started'" %}
+    {% for post in filtered_posts %}
     <div class="col-md-6 col-lg-4">
       <a href="{{ post.url | relative_url }}" class="card-wrapper">
         <div class="card post-preview flex-md-row-reverse">
@@ -86,7 +87,8 @@ endfor %} {% endif %} {% if paginator.total_pages > 1 %} {% assign has_paginator
 
   <div class="row">
     <div class="post-list-header"><h3>Pages/Features</h3></div>
-    {% for post in posts %}
+    {% assign filtered_posts = site.posts | where_exp:"post", "post.tags contains 'pages/features'" %}
+    {% for post in filtered_posts %}
     <div class="col-md-6 col-lg-4">
       <a href="{{ post.url | relative_url }}" class="card-wrapper">
         <div class="card post-preview flex-md-row-reverse">
@@ -143,5 +145,3 @@ endfor %} {% endif %} {% if paginator.total_pages > 1 %} {% assign has_paginator
   </div>
 </div>
 <!-- #post-list -->
-
-{% if has_paginator %} {% include post-paginator.html %} {% endif %}

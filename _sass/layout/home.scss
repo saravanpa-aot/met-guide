@@ -7,14 +7,12 @@
 
   a.card-wrapper {
     display: block;
-
+    margin-bottom: 1.25rem;
     &:hover {
       text-decoration: none;
     }
+    
 
-    &:not(:last-child) {
-      margin-bottom: 1.25rem;
-    }
   }
 
   .card {

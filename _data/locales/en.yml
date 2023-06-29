@@ -11,26 +11,25 @@ layout:
 get_started_tabs:
   # format: <filename_without_extension>: <value>
   faq: Read the FAQ
-  edit_engagement: Edit an Engagement
-  create_engagement:  Create an Engagement
-  preview_engagement: Preview & Schedule/Publish
-  add_users: Add & Manage Users
-  create_survey: Create a Survey
-  manage_engagement: Manage an Engagement Report
-  review_comments:  Review Commments
+  edit-engagement: Edit an Engagement
+  create-engagement:  Create an Engagement
+  preview-engagement: Preview & Schedule/Publish
+  add-users: Add & Manage Users
+  create-survey: Create a Survey
+  manage-engagement: Manage an Engagement Report
 
 pages_features_tabs:
   home: Home
-  engagement_listing: Engagement Listing
-  engagement_creation: Engagement Creation
+  engagement-listing: Engagement Listing
+  engagement-creation: Engagement Creation
   widgets: Widgets
-  survey_builder: Survey Builder
-  survey_listing: Survey Listing
-  comment_review: Comment Review
-  review_comments:  Review Commments
-  user_management:  User Management
-  user_details:  User Details
-  feedback_tool: Feedback Tool
+  survey-builder: Survey Builder
+  survey-listing: Survey Listing
+  comment-review: Comment Review
+  review-comments:  Review Comments
+  user-management:  User Management
+  user-details:  User Details
+  feedback-tool: Feedback Tool
   report: Report
 
 
