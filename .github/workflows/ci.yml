@@ -34,11 +34,11 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Install Dependencies
+        run: gem install jekyll
 
-      - name: Build Assets
-        run: npm i && npm run build
+      - name: Build Site
+        run: bundle exec jekyll build
 
       - name: Test Site
         run: bash tools/test
