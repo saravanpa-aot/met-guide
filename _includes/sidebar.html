@@ -15,8 +15,9 @@
      <span class="nav-section-header">Get Started</span> 
     {% for tab in site.data.locales[include.lang].get_started_tabs %}
     <li class="nav-item{% if tab[0] == page.url %}{{ " active" }}{% endif %}">
-      <a href="/posts{{ tab[0] | relative_url }}" class="nav-link">
+      <a href="{{ site.baseurl }}/posts/{{ tab[0] }}" class="nav-link">
         {% capture tab_name %}{{ tab[0] | split: '/' }}{% endcapture %}
+        <span>{{relative_url}}</span>
         <span>{{ tab[1] }}</span> 
       </a>
     </li>
@@ -25,7 +26,7 @@
     <span class="nav-section-header">Pages/Features</span> 
     {% for tab in site.data.locales[include.lang].pages_features_tabs %}
       <li class="nav-item{% if tab[0] == page.url %}{{ " active" }}{% endif %}">
-        <a href="/posts{{ tab[0] | relative_url }}" class="nav-link">
+        <a href="{{ site.baseurl }}/posts/{{ tab[0] }}" class="nav-link">
           {% capture tab_name %}{{ tab[0] | split: '/' }}{% endcapture %}
           <span>{{ tab[1] }}</span> 
         </a>
